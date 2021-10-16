@@ -20,6 +20,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var tvTipAmount: TextView
     private lateinit var tvTotalAmount: TextView
     private lateinit var tvTipDescription: TextView
+    private lateinit var etGroupSize: EditText
+    private lateinit var tvContribution: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +32,8 @@ class MainActivity : AppCompatActivity() {
         tvTipAmount = findViewById(R.id.tvTipAmount)
         tvTotalAmount = findViewById(R.id.tvTotalAmount)
         tvTipDescription = findViewById(R.id.tvTipDescription)
+        etGroupSize = findViewById(R.id.etGroupSize)
+        tvContribution = findViewById(R.id.tvContribution)
 
         seekBarTip.progress = INITIAL_TIP_PERCENT
         tvTipPercentLabel.text = "$INITIAL_TIP_PERCENT%"
@@ -59,6 +63,18 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
+
+        etGroupSize.addTextChangedListener(object: TextWatcher{
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            override fun afterTextChanged(s: Editable?) {
+                Log.i(TAG, "afterTextChanged group size $s")
+                computeTipAndToTal()
+            }
+
+        })
     }
 
     private fun updateTipDescription(tipPercent: Int) {
@@ -84,6 +100,7 @@ class MainActivity : AppCompatActivity() {
         if (etBaseAmount.text.isEmpty()) {
             tvTipAmount.text = ""
             tvTotalAmount.text = ""
+            tvContribution.text = ""
             return
         }
         // 1. get value of base and tip percent
@@ -95,5 +112,17 @@ class MainActivity : AppCompatActivity() {
         // 3. update UI
         tvTipAmount.text = "%.2f".format(tipAmount)
         tvTotalAmount.text = "%.2f".format(totalAmount)
+
+        if (etGroupSize.text.isEmpty()) {
+            tvContribution.text = ""
+            return
+        }
+        val groupSize = etGroupSize.text.toString().toInt()
+        if (groupSize <= 0) {
+            tvContribution.text = ""
+            return
+        }
+        val contribution = totalAmount / groupSize
+        tvContribution.text = "%.2f".format(contribution)
     }
 }
