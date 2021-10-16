@@ -24,7 +24,7 @@ The following **extensions** are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://github.com/iamc0w/CS194A_tipcalculator/blob/master/tippy%20demo.mov' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://github.com/iamc0w/CS194A_tipcalculator/blob/master/tippy%20demo.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 ## Notes
 
