@@ -10,7 +10,7 @@ Time spent: **5** hours spent in total
 
 The following **required** functionality is completed:
 
-* [x] User can enter in a bill amount (total amount to tip on)
+* [x] User can enter in a bill amount (total amount to tip on).
 * [x] User can enter a tip percentage (what % the user wants to tip).
 * [x] The tip and total amount are updated immediately when any of the inputs changes.
 * [x] The user sees a label or color update based on the tip amount. 
@@ -18,7 +18,7 @@ The following **required** functionality is completed:
 The following **extensions** are implemented:
 
 * [x] Custom colors palette selected
-* [ ] List anything else that you did to improve the app functionality or design!
+* [x] User can enter a group size to split the bill evenly among the group members.
 
 ## Video Walkthrough
 
@@ -30,11 +30,11 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2021] [Luna Yang]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
